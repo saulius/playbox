@@ -1,0 +1,23 @@
+- name: Update APT cache
+  apt: update_cache=yes
+
+- name: Latest and gratest
+  apt: upgrade=dist
+
+- name: Install common packages
+  apt: pkg=$item state=installed
+  with_items:
+    - build-essential
+    - git
+    - curl
+    - htop
+    - iotop
+    - pv
+    - rsync
+    - tmux
+    - vim
+    - wget
+
+# the silver searcher
+- include: ag.yml
+- include: openconnect.yml
