@@ -1,4 +1,3 @@
-playbox
-=======
+# playbox
 
-My Linux VM. Vagrant + Ansible.
+My Linux VM I use for work and test.
