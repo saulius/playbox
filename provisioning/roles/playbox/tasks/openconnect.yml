@@ -1,9 +1,9 @@
-- name: Ensure Ansible PPA pre-requisites are met
+- name: openconnect | ensure Ansible PPA pre-requisites are met
   apt: pkg=python-pycurl state=installed
 
 # I need this in some rare instances
-- name: Add PPA for open connect
+- name: openconnect | add PPA for open connect
   apt_repository: repo='ppa:mtmiller/openconnect'
 
-- name: Install Cisco Open Connect
+- name: openconnect | install Cisco Open Connect
   apt: pkg=openconnect state=installed

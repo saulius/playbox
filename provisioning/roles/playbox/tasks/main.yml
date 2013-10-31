@@ -1,13 +1,13 @@
-- name: Prefer closer APT mirrors
+- name: main | prefer closer APT mirrors
   command: 'sed -i "s/us\.archive\.ubuntu\.com/lt\.archive\.ubuntu\.com/g" /etc/apt/sources.list'
 
-- name: Update APT cache
+- name: main | update APT cache
   apt: update_cache=yes
 
-- name: Latest and gratest
+- name: main | latest and gratest
   apt: upgrade=dist
 
-- name: Install common packages
+- name: main | install common packages
   apt: pkg=$item state=installed
   with_items:
     - build-essential
@@ -23,4 +23,7 @@
 
 # the silver searcher
 - include: ag.yml
+- include: chruby.yml
 - include: openconnect.yml
+- include: ruby_install.yml
+- include: ruby.yml

@@ -1,0 +1,25 @@
+- name: chruby | get the package
+  sudo: no
+  get_url:
+    url: https://github.com/postmodern/chruby/archive/v{{chruby_version}}.tar.gz
+    dest: ~/chruby-{{chruby_version}}.tar.gz
+    force: no
+
+- name: chruby | untar the package
+  sudo: no
+  shell: tar -xzf ~/chruby-{{chruby_version}}.tar.gz creates=~/chruby-{{chruby_version}}
+
+- name: chruby | install
+  sudo: yes
+  command: make install chdir=/home/vagrant/chruby-{{chruby_version}} creates=/usr/local/share/chruby/chruby.sh
+
+- name: chruby | profile.d {{chruby_version}}
+  sudo: yes
+  lineinfile:
+    dest: /etc/profile.d/chruby.sh
+    line: source /usr/local/share/chruby/chruby.sh
+    regexp: chruby.sh
+    create: yes
+    owner: root
+    group: root
+    mode: 0755

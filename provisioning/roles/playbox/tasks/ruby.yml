@@ -1,0 +1,19 @@
+- name: ruby | install build depends
+  apt: pkg=$item state=latest install_recommends=no
+  with_items:
+    - build-essential
+    - git
+    - libcurl4-openssl-dev
+    - libmysqlclient-dev
+    - libreadline6-dev
+    - libssl-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - zlib1g-dev
+
+- name: ruby | install rubies
+  sudo: no
+  command: ruby-install ruby ${item.slug} chdir=/home/vagrant creates=/home/vagrant/.rubies/${item.version}
+  with_items:
+    - { slug: 1.9, version: ruby-1.9.3-p448 }
+    - { slug: 2.0, version: ruby-2.0.0-p247 }
