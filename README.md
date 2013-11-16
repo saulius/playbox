@@ -1,3 +1,3 @@
 # playbox
 
-My Linux VM I use for work and test.
+My Linux VM I use for work and play.
