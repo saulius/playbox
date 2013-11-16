@@ -15,6 +15,7 @@
     - curl
     - htop
     - iotop
+    - nodejs
     - pv
     - rsync
     - tmux
