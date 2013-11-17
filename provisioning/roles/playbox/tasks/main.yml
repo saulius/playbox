@@ -15,6 +15,7 @@
     - curl
     - htop
     - iotop
+    - locales
     - nodejs
     - pv
     - rsync
@@ -26,5 +27,6 @@
 - include: ag.yml
 - include: chruby.yml
 - include: openconnect.yml
+- include: locale.yml # from https://coderwall.com/p/hdul2g
 - include: ruby_install.yml
 - include: ruby.yml
